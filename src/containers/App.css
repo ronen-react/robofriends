@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'SEGA LOGO FONT';
+  font-style: normal;
+  font-weight: noraml;
+  src: local('SEGA LOGO FONT'), url('JenrivTitling-Bold.otf') format('otf');
+}
+
+
+h1 {
+	font-family: 'SEGA LOGO FONT';
+	font-weight: 200;
+	color: #0ccac4;
+}
