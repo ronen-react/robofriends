@@ -110,9 +110,9 @@ Reference:  https://codeburst.io/deploy-react-to-github-pages-to-create-an-amazi
 
 After pushing files to origin do:
 ##### Deploy application
-```
+
  install gh-pages package
- ```
+
  ```
 $ npm install --save gh-pages
 ```
