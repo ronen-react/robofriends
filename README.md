@@ -2,6 +2,7 @@ Client is deployed in:
 
 https://ronen567.github.io/robofirends/
 
+
 See notes on Github deploy
 
 1. [Notes on Creat React App](#available-scripts)  
@@ -120,16 +121,16 @@ $ npm install --save gh-pages
  Modify package.json:
 
 
-- Add "homepage" attribute:
-"homepage": "https://[your-user-name].github.io/[your-repo-name]/"
+- Add "homepage" attribute to root object (don't forget comma at end of line if needed..):
+"homepage": "https://[your-user-name].github.io/[your-repo-name]/",
 The “homepage” specifies the host path where you want to host the application. 
 
 
 - Add predeploy and deploy to "scripts" object:
-“predeploy”: "npm run build"
-“predeploy” specifies the command to build before deployment.
+"predeploy": "npm run build"
+"predeploy" specifies the command to build before deployment.
 
-“deploy”: "gh-pages -d build"
+"deploy": "gh-pages -d build"
 “deploy” specifies which branch and directory to deploy.
 - deploy application
 ```
