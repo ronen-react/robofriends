@@ -1,6 +1,6 @@
 Client is deployed in:
 
-https://ronen567.github.io/robofirends/
+https://ronen567.github.io/robofriends/
 
 
 See notes on Github deploy
