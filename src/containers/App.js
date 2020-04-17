@@ -1,58 +1,54 @@
-import React, {Component} from 'react'
-import CardList from '../components/CardList'
+import React, { Component } from 'react';
+import CardList from '../components/CardList';
 // import {robots} from './robots.js'
-import SearchBox from '../components/SearchBox.js'
-import Scroll from '../components/Scroll'
-import './App.css'
+import SearchBox from '../components/SearchBox.js';
+import Scroll from '../components/Scroll';
+import './App.css';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 class App extends Component {
-	constructor(){
-		super()
+	constructor() {
+		super();
 		this.state = {
 			robots: [],
 			searchfield: ''
-		}
+		};
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		fetch('https://jsonplaceholder.typicode.com/users')
-		.then(response=> {
-			return response.json()
-		})
-		.then(users=>{
-			this.setState({robots: users})
-		})
-	}
-		
-	onSearchChange = event => {
-		this.setState({searchfield: event.target.value})
-		console.log(event.target.value)
-
-		
+			.then((response) => {
+				return response.json();
+			})
+			.then((users) => {
+				this.setState({ robots: users });
+			});
 	}
 
-	render(){
-		const {robots, searchfield} = this.state // distructuring
-		const filterRobot = robots.filter(robot => {
-			return robot.name.toLowerCase().includes(searchfield.toLowerCase())
-		})
-		console.log(filterRobot)
-		return !robots.length ?
-			 <h1>Loading </h1>
-		:
-			 (
-				<div className='tc'>
-				<h1 className='f1'> RoboFriends</h1>
-				 <SearchBox searchChange={this.onSearchChange}/>
-				 <Scroll>
-				<CardList robots={filterRobot}  />
+	onSearchChange = (event) => {
+		this.setState({ searchfield: event.target.value });
+		console.log(event.target.value);
+	};
+
+	render() {
+		const { robots, searchfield } = this.state; // distructuring
+		const filterRobot = robots.filter((robot) => {
+			return robot.name.toLowerCase().includes(searchfield.toLowerCase());
+		});
+		console.log(filterRobot);
+		return !robots.length ? (
+			<h1> Loading </h1>
+		) : (
+			<div className="tc">
+				<h1 className="f1"> RoboFriends </h1> <SearchBox searchChange={this.onSearchChange} />
+				<Scroll>
+					<ErrorBoundary>
+						<CardList robots={filterRobot} />
+					</ErrorBoundary>
 				</Scroll>
-				</div>
-			);
-		
+			</div>
+		);
 	}
-	
 }
 
-
-export default App
+export default App;
